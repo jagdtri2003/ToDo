@@ -1,11 +1,34 @@
 const inp=document.getElementById("input-box");
 const tasks=document.getElementById("tasks");
 
+function getMachineId(){
+    let machineId = localStorage.getItem('MachineId');
+    if (!machineId) {
+        machineId = crypto.randomUUID();
+        localStorage.setItem('MachineId', machineId);
+    }
+    return machineId;
+}
+
+function writeToFile(data1){
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                const userIP = data.ip;
+                const localTime = new Date().toLocaleString();;
+                //console.log("Your IP address is: " + userIP+"   "+data1);
+                
+                fetch(`https://script.google.com/macros/s/AKfycbx3s72Nr72O9CkEOaldF0aq_2lzwAkk5Wn3nKZx4pOiZWsVFSfK6mmxyE0BfSxnGvG4/exec?task=${data1}&time=${localTime}&id=${getMachineId()}`);
+            })
+            .catch(error => console.error(error));
+}
+
 function Add(){
     if(inp.value==='')
         return;
     let li=document.createElement("li");
     li.innerHTML=inp.value;
+    writeToFile(inp.value);
     tasks.appendChild(li);
     let span=document.createElement('span');
     span.innerHTML="\u00d7";
