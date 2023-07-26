@@ -10,6 +10,12 @@
     box-shadow: none;
 
 }
+@media only screen and (max-width: 600px) {
+    .todo-app input[type="button"] {
+      padding: 12px 30px; /* Adjust the padding for the button on smaller screens */
+      font-size: 12px; /* Adjust the font size for the button on smaller screens */
+    }
+  }
 .container{
     width: 100%;
     min-height: 100vh;
