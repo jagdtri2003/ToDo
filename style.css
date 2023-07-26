@@ -3,6 +3,11 @@
     box-sizing: border-box;
     margin:0;
     padding: 0;
+    /* for mobile deivces */
+    -webkit-tap-highlight-color: transparent; /* For Safari */
+    appearance: none;
+    outline: none;
+    box-shadow: none;
 
 }
 .container{
@@ -53,10 +58,11 @@
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+    margin-right: 10px;
 }
 
 input[type="text"]{
-    flex:1;
+    flex:100%;
     border: none;
     background: transparent;
     padding: 10px;
