@@ -1,6 +1,16 @@
 const inp=document.getElementById("input-box");
 const tasks=document.getElementById("tasks");
 
+function Delete(){
+    tasks.innerHTML="";
+    updateRemainingTaskCount();
+}
+function updateRemainingTaskCount() {
+    const tasksList = document.querySelectorAll("#tasks li:not(.checked)");
+    const remainingTasksCount = tasksList.length;
+    document.getElementById("count").textContent = `${remainingTasksCount} ${remainingTasksCount === 1 ? "task" : "tasks"} remaining`;
+  }
+
 function getMachineId(){
     let machineId = localStorage.getItem('MachineId');
     if (!machineId) {
@@ -50,10 +60,12 @@ tasks.addEventListener("click",function(e){
 
 function saveData(){
     localStorage.setItem("data",tasks.innerHTML);
+    updateRemainingTaskCount();
 }
 
 function showData(){
     tasks.innerHTML=localStorage.getItem("data");
+    updateRemainingTaskCount();
 }
 
 showData();
