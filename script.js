@@ -8,7 +8,7 @@ function Delete(){
 function updateRemainingTaskCount() {
     const tasksList = document.querySelectorAll("#tasks li:not(.checked)");
     const remainingTasksCount = tasksList.length;
-    document.getElementById("count").textContent = `${remainingTasksCount} ${remainingTasksCount === 1 ? "task" : "tasks"} remaining`;
+    document.getElementById("count").textContent = `${remainingTasksCount} ${remainingTasksCount < 2 ? "task" : "tasks"} remaining`;
   }
 
 function getMachineId(){
