@@ -9,7 +9,7 @@ inp.addEventListener("keypress", function(event) {
 
 function Delete(){
     tasks.innerHTML="";
-    updateRemainingTaskCount();
+    saveData();
 }
 function updateRemainingTaskCount() {
     const tasksList = document.querySelectorAll("#tasks li:not(.checked)");
