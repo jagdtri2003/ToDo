@@ -149,8 +149,9 @@ ul li span:hover{
 
 button{
     border: none;
-    background-color: #ff5945;
+    background-color: #ff7f50;
     color: #ffffff;
     padding: 5px 15px;
     border-radius: 15px;
+    cursor:pointer;
 }

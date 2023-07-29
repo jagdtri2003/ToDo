@@ -1,6 +1,12 @@
 const inp=document.getElementById("input-box");
 const tasks=document.getElementById("tasks");
 
+inp.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      Add(); 
+    }
+  });
+
 function Delete(){
     tasks.innerHTML="";
     updateRemainingTaskCount();
